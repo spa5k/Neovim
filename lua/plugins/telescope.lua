@@ -85,32 +85,32 @@ return {
                 layout_config = {
                     horizontal = {
                         prompt_position = "top",
-                        preview_width = 0.55,
-                        results_width = 0.8,
+                        -- preview_width = 0.55,
+                        -- results_width = 0.8,
                     },
                     vertical = {
                         mirror = false,
                     },
-                    width = 0.87,
-                    height = 0.80,
-                    preview_cutoff = 120,
+                    -- width = 0.87,
+                    -- height = 0.80,
+                    -- preview_cutoff = 120,
                     prompt_position = "top",
                 },
                 pickers = {
                     find_files = {
                         -- path_display = formattedName,
                         layout_config = {
-                            height = 0.4,
+                            -- height = 0.4,
                             prompt_position = "top",
-                            preview_cutoff = 120,
+                            -- preview_cutoff = 120,
                         },
                     },
                     git_files = {
                         -- path_display = formattedName,
                         layout_config = {
-                            height = 0.4,
+                            -- height = 0.4,
                             prompt_position = "top",
-                            preview_cutoff = 120,
+                            -- preview_cutoff = 120,
                         },
                     },
                     buffers = {
@@ -125,17 +125,17 @@ return {
                         initial_mode = "normal",
                         -- theme = "dropdown",
                         layout_config = {
-                            height = 0.4,
-                            width = 0.6,
+                            -- height = 0.4,
+                            -- width = 0.6,
                             prompt_position = "top",
-                            preview_cutoff = 120,
+                            -- preview_cutoff = 120,
                         },
                     },
                     current_buffer_fuzzy_find = {
                         previewer = true,
                         layout_config = {
                             prompt_position = "top",
-                            preview_cutoff = 120,
+                            -- preview_cutoff = 120,
                         },
                     },
                     live_grep = {
