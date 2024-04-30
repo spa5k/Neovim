@@ -75,91 +75,9 @@ return {
                     "--column",
                     "--smart-case",
                 },
-                prompt_prefix = "   ",
-                selection_caret = "  ",
-                entry_prefix = "  ",
-                initial_mode = "insert",
-                selection_strategy = "reset",
-                sorting_strategy = "ascending",
-                layout_strategy = "horizontal",
-                layout_config = {
-                    horizontal = {
-                        prompt_position = "top",
-                        -- preview_width = 0.55,
-                        -- results_width = 0.8,
-                    },
-                    vertical = {
-                        mirror = false,
-                    },
-                    -- width = 0.87,
-                    -- height = 0.80,
-                    -- preview_cutoff = 120,
-                    prompt_position = "top",
-                },
-                pickers = {
-                    find_files = {
-                        -- path_display = formattedName,
-                        layout_config = {
-                            -- height = 0.4,
-                            prompt_position = "top",
-                            -- preview_cutoff = 120,
-                        },
-                    },
-                    git_files = {
-                        -- path_display = formattedName,
-                        layout_config = {
-                            -- height = 0.4,
-                            prompt_position = "top",
-                            -- preview_cutoff = 120,
-                        },
-                    },
-                    buffers = {
-                        mappings = {
-                            i = {
-                                ["<c-d>"] = actions.delete_buffer,
-                            },
-                            n = {
-                                ["<c-d>"] = actions.delete_buffer,
-                            },
-                        },
-                        initial_mode = "normal",
-                        -- theme = "dropdown",
-                        layout_config = {
-                            -- height = 0.4,
-                            -- width = 0.6,
-                            prompt_position = "top",
-                            -- preview_cutoff = 120,
-                        },
-                    },
-                    current_buffer_fuzzy_find = {
-                        previewer = true,
-                        layout_config = {
-                            prompt_position = "top",
-                            -- preview_cutoff = 120,
-                        },
-                    },
-                    live_grep = {
-                        only_sort_text = true,
-                        previewer = true,
-                    },
-                    grep_string = {
-                        only_sort_text = true,
-                        previewer = true,
-                    },
-                    lsp_references = {
-                        show_line = false,
-                        previewer = true,
-                    },
-                    treesitter = {
-                        show_line = false,
-                        previewer = true,
-                    },
-                    colorscheme = {
-                        enable_preview = true,
-                    },
-                },
+
                 file_sorter = sorters.get_fuzzy_file,
-                file_ignore_patterns = { "node_modules" },
+                file_ignore_patterns = { "node_modules", ".git", ".cache", ".venv", ".vscode", ".idea", ".DS_Store", ".next" },
                 generic_sorter = sorters.get_generic_fuzzy_sorter,
                 extensions = {
                     file_browser = {
@@ -183,13 +101,11 @@ return {
                         ignore_patterns = {
                             "*.git/*",
                             "*/tmp/*",
+                            "*/node_modules/*",
                             "*/lua-language-server/*",
                         },
                     },
                 },
-                path_display = { "truncate" },
-                winblend = 0,
-                border = {},
                 borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
                 color_devicons = true,
                 set_env = { ["COLORTERM"] = "truecolor" }, -- default = nil,
