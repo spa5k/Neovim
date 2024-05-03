@@ -90,6 +90,10 @@ return {
             }
         end
     },
+    {
+        'stevearc/overseer.nvim',
+        opts = {},
+    }
     -- {
     --     'numToStr/Comment.nvim',
     --     opts = {

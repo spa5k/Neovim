@@ -10,7 +10,9 @@ return {
             "kkharji/sqlite.lua",
             "nvim-telescope/telescope-frecency.nvim",
             "nvim-telescope/telescope-project.nvim",
-            "rcarriga/nvim-notify"
+            "rcarriga/nvim-notify",
+            "nvim-telescope/telescope-fzy-native.nvim",
+            "danielfalk/smart-open.nvim",
         },
         config = function(_, opts)
             local telescope = require("telescope")
@@ -21,10 +23,14 @@ return {
             -- Keymaps
             vim.keymap.set('n', '<C-p>', function() require('telescope.builtin').find_files() end,
                 { desc = 'Search Files [P]opup' })
+            -- smart open
+            vim.keymap.set('n', '<leader><leader>', function()
+                require('telescope').extensions.smart_open.smart_open()
+            end, { desc = 'Smart [O]pen' })
             vim.keymap.set('n', '<leader>/', function()
                 require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
                     winblend = 10,
-                    previewer = false,
+                    previewer = true,
                 })
             end, { desc = '[/] Fuzzily search in current buffer' })
             vim.keymap.set('n', '<leader>sp', '<Cmd>Telescope projects<CR>', { desc = '[S]earch [P]rojects' })
@@ -32,10 +38,11 @@ return {
             vim.keymap.set('n', '<C-S-f>', '<Cmd>Telescope live_grep<CR>', { desc = 'Search [F]iles' })
             vim.keymap.set('n', '<leader>sb', '<Cmd>Telescope buffers<CR>', { desc = 'Search [B]uffers' })
             vim.keymap.set('n', '<C-p>', '<Cmd>Telescope find_files<CR>', { desc = 'Search Files' })
+
             vim.keymap.set('n', '<leader>/', function()
                 require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
                     winblend = 10,
-                    previewer = false,
+                    previewer = true,
                 })
             end, { desc = '[/] Fuzzily search in current buffer' })
             -- open file_browser with the path of the current buffer
@@ -126,6 +133,11 @@ return {
             telescope.load_extension("ui-select")
             telescope.load_extension("notify")
             telescope.load_extension("project")
+            telescope.load_extension("smart_open")
+            -- telescope.extensions.smart_open.smart_open {
+            --     -- cwd_only = true,
+            --     -- ignore_patterns = { "node_modules", ".git", ".cache", ".venv", ".vscode", ".idea", ".DS_Store", ".next" },
+            -- }
         end,
     },
 }
