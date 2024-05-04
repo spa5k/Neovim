@@ -45,6 +45,8 @@ return {
                     map("<leader>p", require("telescope.builtin").lsp_document_symbols, "Document Symbols")
                     map("<leader>P", require("telescope.builtin").lsp_workspace_symbols, "Workspace Symbols")
                     map("<leader>Ps", require("telescope.builtin").lsp_dynamic_workspace_symbols, "Workspace Symbols")
+                    -- code actions
+                    map("<leader>ca", require("telescope.builtin").lsp_code_actions, "Code Actions")
 
                     map("gl", vim.diagnostic.open_float, "Open Diagnostic Float")
                     map("K", vim.lsp.buf.hover, "Hover Documentation")
