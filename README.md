@@ -28,8 +28,13 @@ NVIM_APPNAME=spa5k/Neovim/ nvim
 + [utilyre/barbecue.nvim](https://dotfyle.com/plugins/utilyre/barbecue.nvim)
 + [SmiteshP/nvim-navic](https://dotfyle.com/plugins/SmiteshP/nvim-navic)
 + [Bekaboo/dropbar.nvim](https://dotfyle.com/plugins/Bekaboo/dropbar.nvim)
+### code-runner
+
++ [stevearc/overseer.nvim](https://dotfyle.com/plugins/stevearc/overseer.nvim)
 ### colorscheme
 
++ [navarasu/onedark.nvim](https://dotfyle.com/plugins/navarasu/onedark.nvim)
++ [shaunsingh/nord.nvim](https://dotfyle.com/plugins/shaunsingh/nord.nvim)
 + [sainnhe/sonokai](https://dotfyle.com/plugins/sainnhe/sonokai)
 + [rose-pine/neovim](https://dotfyle.com/plugins/rose-pine/neovim)
 + [xero/miasma.nvim](https://dotfyle.com/plugins/xero/miasma.nvim)
@@ -38,16 +43,14 @@ NVIM_APPNAME=spa5k/Neovim/ nvim
 + [marko-cerovac/material.nvim](https://dotfyle.com/plugins/marko-cerovac/material.nvim)
 + [sainnhe/gruvbox-material](https://dotfyle.com/plugins/sainnhe/gruvbox-material)
 + [sainnhe/everforest](https://dotfyle.com/plugins/sainnhe/everforest)
-+ [navarasu/onedark.nvim](https://dotfyle.com/plugins/navarasu/onedark.nvim)
-+ [shaunsingh/nord.nvim](https://dotfyle.com/plugins/shaunsingh/nord.nvim)
 ### colorscheme-creation
 
 + [rktjmp/lush.nvim](https://dotfyle.com/plugins/rktjmp/lush.nvim)
 ### comment
 
++ [numToStr/Comment.nvim](https://dotfyle.com/plugins/numToStr/Comment.nvim)
 + [JoosepAlviste/nvim-ts-context-commentstring](https://dotfyle.com/plugins/JoosepAlviste/nvim-ts-context-commentstring)
 + [folke/todo-comments.nvim](https://dotfyle.com/plugins/folke/todo-comments.nvim)
-+ [numToStr/Comment.nvim](https://dotfyle.com/plugins/numToStr/Comment.nvim)
 ### completion
 
 + [hrsh7th/nvim-cmp](https://dotfyle.com/plugins/hrsh7th/nvim-cmp)
@@ -76,14 +79,17 @@ NVIM_APPNAME=spa5k/Neovim/ nvim
 ### icon
 
 + [nvim-tree/nvim-web-devicons](https://dotfyle.com/plugins/nvim-tree/nvim-web-devicons)
+### indent
+
++ [lukas-reineke/indent-blankline.nvim](https://dotfyle.com/plugins/lukas-reineke/indent-blankline.nvim)
 ### keybinding
 
 + [folke/which-key.nvim](https://dotfyle.com/plugins/folke/which-key.nvim)
 ### lsp
 
++ [j-hui/fidget.nvim](https://dotfyle.com/plugins/j-hui/fidget.nvim)
 + [neovim/nvim-lspconfig](https://dotfyle.com/plugins/neovim/nvim-lspconfig)
 + [onsails/lspkind.nvim](https://dotfyle.com/plugins/onsails/lspkind.nvim)
-+ [j-hui/fidget.nvim](https://dotfyle.com/plugins/j-hui/fidget.nvim)
 ### lsp-installer
 
 + [williamboman/mason.nvim](https://dotfyle.com/plugins/williamboman/mason.nvim)
@@ -93,6 +99,7 @@ NVIM_APPNAME=spa5k/Neovim/ nvim
 ### motion
 
 + [folke/flash.nvim](https://dotfyle.com/plugins/folke/flash.nvim)
++ [tris203/precognition.nvim](https://dotfyle.com/plugins/tris203/precognition.nvim)
 ### nvim-dev
 
 + [nvim-lua/plenary.nvim](https://dotfyle.com/plugins/nvim-lua/plenary.nvim)
@@ -129,7 +136,6 @@ NVIM_APPNAME=spa5k/Neovim/ nvim
 ### utility
 
 + [folke/noice.nvim](https://dotfyle.com/plugins/folke/noice.nvim)
-+ [CosmicNvim/cosmic-ui](https://dotfyle.com/plugins/CosmicNvim/cosmic-ui)
 + [rcarriga/nvim-notify](https://dotfyle.com/plugins/rcarriga/nvim-notify)
 + [stevearc/dressing.nvim](https://dotfyle.com/plugins/stevearc/dressing.nvim)
 + [echasnovski/mini.nvim](https://dotfyle.com/plugins/echasnovski/mini.nvim)
