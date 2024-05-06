@@ -5,7 +5,7 @@ return {
             { "williamboman/mason.nvim", config = true },
             "williamboman/mason-lspconfig.nvim",
             { "j-hui/fidget.nvim",       opts = {} },
-            "folke/neodev.nvim",
+            -- "folke/neodev.nvim",
             { "b0o/schemastore.nvim" },
             { "hrsh7th/cmp-nvim-lsp" },
         },
@@ -29,13 +29,17 @@ return {
             })
             require("lspconfig.ui.windows").default_options.border = "single"
 
-            require("neodev").setup()
+            -- require("neodev").setup()
 
             vim.api.nvim_create_autocmd("LspAttach", {
                 group = vim.api.nvim_create_augroup("lsp-attach", { clear = true }),
                 callback = function(event)
                     local map = function(keys, func, desc)
-                        vim.keymap.set("n", keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
+                        if func then
+                            vim.keymap.set("n", keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
+                        else
+                            print("Function for keymap " .. keys .. " is not available.")
+                        end
                     end
 
                     map("gd", require("telescope.builtin").lsp_definitions, "Goto Definition")
@@ -46,7 +50,7 @@ return {
                     map("<leader>P", require("telescope.builtin").lsp_workspace_symbols, "Workspace Symbols")
                     map("<leader>Ps", require("telescope.builtin").lsp_dynamic_workspace_symbols, "Workspace Symbols")
                     -- code actions
-                    map("<leader>ca", require("telescope.builtin").lsp_code_actions, "Code Actions")
+                    map("<leader>ca", vim.lsp.buf.code_action, "Code Actions")
 
                     map("gl", vim.diagnostic.open_float, "Open Diagnostic Float")
                     map("K", vim.lsp.buf.hover, "Hover Documentation")
@@ -84,7 +88,6 @@ return {
                 function(server_name)
                     require("lspconfig")[server_name].setup({
                         capabilities = capabilities,
-                        -- on_attach = require("plugins.lsp.on_attach").on_attach,
                         settings = servers[server_name],
                         filetypes = (servers[server_name] or {}).filetypes,
                     })
