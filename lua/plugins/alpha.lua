@@ -29,11 +29,13 @@ return {
         dashboard.section.buttons.val = {
             dashboard.button("f", " " .. " Find file", ":Telescope find_files <CR>"),
             dashboard.button("n", " " .. " New file", ":ene <BAR> startinsert <CR>"),
-            dashboard.button("r", " " .. " Recent files", ":Telescope oldfiles <CR>"),
-            dashboard.button("R", " " .. " Restore session", ":lua require('persistence').load()<CR>"),
+            -- dashboard.button("r", " " .. " Recent files", ":Telescope oldfiles <CR>"),
+            dashboard.button("r", " " .. " Restore session", ":lua require('persistence').load()<CR>"),
             dashboard.button("g", " " .. " Find text", ":Telescope live_grep <CR>"),
             dashboard.button("s", " " .. " Search projects", ":Telescope projects <CR>"),
             dashboard.button("c", " " .. " Config", ":e ~/.config/nvim/ <CR>"),
+            -- mason
+            dashboard.button("m", " " .. " Mason", ":Mason<CR>"),
             dashboard.button("l", "󰒲 " .. " Lazy", ":Lazy<CR>"),
             dashboard.button("q", " " .. " Quit", ":qa<CR>"),
         }
