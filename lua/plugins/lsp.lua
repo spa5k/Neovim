@@ -12,6 +12,7 @@ return {
         config = function()
             -- require("fidget").setup({})
             require("mason").setup()
+            local builtin = require("telescope.builtin")
             local servers = {
                 "tsserver",
                 "lua_ls",
@@ -42,13 +43,13 @@ return {
                         end
                     end
 
-                    map("gd", require("telescope.builtin").lsp_definitions, "Goto Definition")
-                    map("gr", require("telescope.builtin").lsp_references, "Goto References")
-                    map("gi", require("telescope.builtin").lsp_implementations, "Goto Implementation")
-                    map("go", require("telescope.builtin").lsp_type_definitions, "Type Definition")
-                    map("<leader>p", require("telescope.builtin").lsp_document_symbols, "Document Symbols")
-                    map("<leader>P", require("telescope.builtin").lsp_workspace_symbols, "Workspace Symbols")
-                    map("<leader>Ps", require("telescope.builtin").lsp_dynamic_workspace_symbols, "Workspace Symbols")
+                    map("gd", builtin.lsp_definitions, "Goto Definition")
+                    map("gr", builtin.lsp_references, "Goto References")
+                    map("gi", builtin.lsp_implementations, "Goto Implementation")
+                    map("go", builtin.lsp_type_definitions, "Type Definition")
+                    map("<leader>p", builtin.lsp_document_symbols, "Document Symbols")
+                    map("<leader>P", builtin.lsp_workspace_symbols, "Workspace Symbols")
+                    map("<leader>Ps", builtin.lsp_dynamic_workspace_symbols, "Workspace Symbols")
                     -- code actions
                     map("<leader>ca", vim.lsp.buf.code_action, "Code Actions")
 

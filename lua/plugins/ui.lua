@@ -46,7 +46,7 @@ return {
         end, -- function that is called when day begins
         night_callback = function()
           require("notify")("It's night time", "info")
-          vim.cmd("colorscheme everforest")
+          vim.cmd("colorscheme kanagawa")
         end,
         update_interval = 60000, -- how frequently to check for sunrise/sunset changes in milliseconds
         time_format = "%H:%M",   -- sun time formatting using os.date https://www.lua.org/pil/22.1.html
@@ -58,7 +58,6 @@ return {
     lazy = true,
     opts = {},
   },
-
   {
     'Theyashsawarkar/bufferline.nvim',
     dependencies = 'nvim-tree/nvim-web-devicons',
@@ -68,40 +67,22 @@ return {
     end
   },
   {
+    "hedyhli/outline.nvim",
+    config = function()
+      -- Example mapping to toggle outline
+      vim.keymap.set("n", "<leader>o", "<cmd>Outline<CR>",
+        { desc = "Toggle Outline" })
+
+      require("outline").setup {
+        -- Your setup opts here (leave empty to use defaults)
+      }
+    end,
+  },
+  {
     "wildfunctions/myeyeshurt",
     dependencies = { "nvim-lua/plenary.nvim" },
     opts = {}
   },
-  -- {
-  --   "utilyre/barbecue.nvim",
-  --   name = "barbecue",
-  --   version = "*",
-  --   dependencies = {
-  --     "SmiteshP/nvim-navic",
-  --     "nvim-tree/nvim-web-devicons", -- optional dependency
-  --   },
-  --   opts = {
-  --     -- configurations go here
-  --   },
-  --   config = function()
-  --     require("barbecue").setup({
-  --       create_autocmd = false, -- prevent barbecue from updating itself automatically
-  --     })
-
-  --     vim.api.nvim_create_autocmd({
-  --       "WinScrolled", -- or WinResized on NVIM-v0.9 and higher
-  --       "BufWinEnter",
-  --       "CursorHold",
-  --       "InsertLeave",
-  --       "WinResized"
-  --     }, {
-  --       group = vim.api.nvim_create_augroup("barbecue.updater", {}),
-  --       callback = function()
-  --         require("barbecue.ui").update()
-  --       end,
-  --     })
-  --   end,
-  -- },
   {
     'Bekaboo/dropbar.nvim',
     -- optional, but required for fuzzy finder support
@@ -109,7 +90,13 @@ return {
       'nvim-telescope/telescope-fzf-native.nvim'
     }
   },
-  { "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} }
+  {
+    "lukas-reineke/indent-blankline.nvim",
+    main = "ibl",
+    opts = {
+      scope = { enabled = false },
+    }
+  }
   -- {
   --   "tris203/precognition.nvim",
   --   config = {
