@@ -21,18 +21,32 @@ return {
             local sorters = require("telescope.sorters")
 
             -- Keymaps
-            vim.keymap.set('n', '<C-p>', function() require('telescope.builtin').find_files() end,
-                { desc = 'Search Files [P]opup' })
+            -- vim.keymap.set('n', '<C-p>', function() require('telescope.builtin').find_files() end,
+            --     { desc = 'Search Files [P]opup' })
+            -- frecency
+            vim.keymap.set('n', '<C-p>', function()
+                require('telescope').extensions.frecency.frecency(require('telescope.themes').get_dropdown {
+                    winblend = 10,
+                    previewer = true,
+                })
+            end, { desc = 'Search [F]iles' })
             -- smart open
+
             vim.keymap.set('n', '<leader><leader>', function()
-                require('telescope').extensions.smart_open.smart_open()
+                require('telescope').extensions.smart_open.smart_open {
+                    cwd_only = true,
+                    filename_first = false,
+                }
             end, { desc = 'Smart [O]pen' })
+
+
             vim.keymap.set('n', '<leader>/', function()
                 require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
                     winblend = 10,
                     previewer = true,
                 })
             end, { desc = '[/] Fuzzily search in current buffer' })
+
             vim.keymap.set('n', '<leader>sp', '<Cmd>Telescope projects<CR>', { desc = '[S]earch [P]rojects' })
             vim.keymap.set('n', '<C-S-p>', '<Cmd>Telescope commands<CR>', { desc = 'Search [C]ommands' })
             vim.keymap.set('n', '<C-S-f>', '<Cmd>Telescope live_grep<CR>', { desc = 'Search [F]iles' })
@@ -46,8 +60,8 @@ return {
                 })
             end, { desc = '[/] Fuzzily search in current buffer' })
             -- open file_browser with the path of the current buffer
-            vim.keymap.set("n", "<space>fb", ":Telescope file_browser path=%:p:h select_buffer=true<CR>",
-                { desc = "File Browser" })
+            -- vim.keymap.set("n", "<space>fb", ":Telescope file_browser path=%:p:h select_buffer=true<CR>",
+            --     { desc = "File Browser" })
             -- list keymaps
             vim.keymap.set('n', '<leader>hk', function()
                 require('telescope.builtin').keymaps(require('telescope.themes').get_dropdown {
@@ -62,13 +76,20 @@ return {
                     previewer = false,
                 })
             end, { desc = 'List [O]pen Buffers' })
+            -- colorschemes
+            vim.keymap.set('n', '<leader>cs', function()
+                require('telescope.builtin').colorscheme(require('telescope.themes').get_dropdown {
+                    winblend = 10,
+                    previewer = false,
+                })
+            end, { desc = 'List [C]olorschemes' })
 
             -- extensions
             telescope.setup {
                 defaults = {
                     mappings = {
                         i = {
-                            ["<CR>"] = actions.file_edit,
+                            -- ["<CR>"] = actions.file_edit,
                         },
                     },
                 },
@@ -98,10 +119,10 @@ return {
                         override_file_sorter = true,
                         case_mode = "smart_case",
                     },
-                    ["ui-select"] = {
-                        require("telescope.themes").get_dropdown {
-                        }
-                    },
+                    -- ["ui-select"] = {
+                    --     require("telescope.themes").get_dropdown {
+                    --     }
+                    -- },
                     frecency = {
                         default_workspace = "CWD",
                         db_safe_mode = false,
@@ -113,7 +134,7 @@ return {
                         },
                     },
                 },
-                borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
+                -- borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
                 color_devicons = true,
                 set_env = { ["COLORTERM"] = "truecolor" }, -- default = nil,
                 file_previewer = previewers.vim_buffer_cat.new,
@@ -130,14 +151,10 @@ return {
             telescope.load_extension("file_browser")
             telescope.load_extension("frecency")
             telescope.load_extension("fzf")
-            telescope.load_extension("ui-select")
+            -- telescope.load_extension("ui-select")
             telescope.load_extension("notify")
             telescope.load_extension("project")
             telescope.load_extension("smart_open")
-            -- telescope.extensions.smart_open.smart_open {
-            --     -- cwd_only = true,
-            --     -- ignore_patterns = { "node_modules", ".git", ".cache", ".venv", ".vscode", ".idea", ".DS_Store", ".next" },
-            -- }
         end,
     },
 }

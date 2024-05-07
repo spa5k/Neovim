@@ -70,10 +70,6 @@ return {
                     ['<C-n>'] = cmp.mapping.select_next_item(),
                     ["<C-b>"] = cmp.mapping.scroll_docs(-4),
                     ["<C-f>"] = cmp.mapping.scroll_docs(4),
-                    ["<CR>"] = cmp.mapping.confirm({
-                        behavior = cmp.ConfirmBehavior.Replace,
-                        select = true,
-                    }),
                     ["<Tab>"] = cmp.mapping(function(fallback)
                         if cmp.visible() then
                             cmp.select_next_item()
@@ -92,6 +88,10 @@ return {
                             fallback()
                         end
                     end, { "i", "s" }),
+                    ["<CR>"] = cmp.mapping.confirm({
+                        behavior = cmp.ConfirmBehavior.Replace,
+                        select = true,
+                    }),
                     ['<C-y>'] = cmp.mapping.confirm({
                         behavior = cmp.ConfirmBehavior.Insert,
                         select = true,
@@ -114,7 +114,6 @@ return {
                     { name = "emoji" },
                     { name = "treesitter" },
                     { name = "crates" },
-                    { name = "tmux" },
                 },
                 formatting = {
                     format = function(entry, vim_item)
@@ -124,17 +123,16 @@ return {
                             vim_item.kind = string.format("%s %s", kind_icons[vim_item.kind], vim_item.kind)
                             -- Source
                             vim_item.menu = ({
-                                copilot = "[Copilot]",
-                                nvim_lsp = "[LSP]",
-                                nvim_lua = "[Lua]",
-                                luasnip = "[LuaSnip]",
-                                buffer = "[Buffer]",
-                                latex_symbols = "[LaTeX]",
-                                path = "[Path]",
-                                calc = "[Calc]",
-                                emoji = "[Emoji]",
-                                treesitter = "[Treesitter]",
-
+                                copilot = "",
+                                nvim_lsp = "",
+                                nvim_lua = "",
+                                luasnip = "",
+                                buffer = "﬘",
+                                latex_symbols = "",
+                                path = "",
+                                calc = "",
+                                emoji = "",
+                                treesitter = "",
                             })[entry.source.name]
                             return vim_item
                         else
