@@ -24,6 +24,6 @@ Map('n', '<leader>j', '<C-w>j', { desc = 'Move focus to the lower window' })
 Map('n', '<leader>k', '<C-w>k', { desc = 'Move focus to the upper window' })
 Map('n', '<leader>l', '<C-w>l', { desc = 'Move focus to the right window' })
 
--- ctrl hjkl for bufferline
-Map('n', '<C-h>', '<cmd>BufferLineCyclePrev<CR>', { desc = 'Move to previous buffer' })
-Map('n', '<C-l>', '<cmd>BufferLineCycleNext<CR>', { desc = 'Move to next buffer' })
+-- ctrl hjkl for moving between buffers
+Map('n', '<C-h>', ':bprevious<CR>', { desc = 'Move to previous buffer' })
+Map('n', '<C-l>', ':bnext<CR>', { desc = 'Move to next buffer' })

@@ -16,8 +16,6 @@ return {
                         refresh = "r",
                         open = "<M-CR>",
                     },
-                    layout = {
-                    },
                 },
                 suggestion = {
                     enabled = true,
