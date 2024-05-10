@@ -14,6 +14,7 @@ return {
             "hrsh7th/cmp-nvim-lua",
             "hrsh7th/cmp-buffer",
             'hrsh7th/cmp-cmdline',
+            "luckasRanarison/tailwind-tools.nvim",
 
             -- Adds a number of user-friendly snippets
             "rafamadriz/friendly-snippets",
@@ -114,30 +115,35 @@ return {
                     { name = "emoji" },
                     { name = "treesitter" },
                     { name = "crates" },
+                    -- tailwind
+                    { name = "tailwind" },
                 },
                 formatting = {
                     format = function(entry, vim_item)
                         local lspkind_ok, lspkind = pcall(require, "lspkind")
+
                         if not lspkind_ok then
                             -- From kind_icons array
                             vim_item.kind = string.format("%s %s", kind_icons[vim_item.kind], vim_item.kind)
                             -- Source
                             vim_item.menu = ({
-                                copilot = "",
-                                nvim_lsp = "",
-                                nvim_lua = "",
-                                luasnip = "",
-                                buffer = "﬘",
-                                latex_symbols = "",
-                                path = "",
-                                calc = "",
-                                emoji = "",
-                                treesitter = "",
+                                copilot = "[Copilot]",
+                                nvim_lsp = "[LSP]",
+                                nvim_lua = "[Lua]",
+                                luasnip = "[LuaSnip]",
+                                buffer = "[Buffer]",
+                                latex_symbols = "[LaTeX]",
+                                emoji = "[Emoji]",
+                                treesitter = "[Treesitter]",
+                                calc = "[Calc]",
+                                path = "[Path]",
                             })[entry.source.name]
                             return vim_item
                         else
                             -- From lspkind
-                            return lspkind.cmp_format()(entry, vim_item)
+                            return lspkind.cmp_format({
+                                before = require("tailwind-tools.cmp").lspkind_format
+                            })(entry, vim_item)
                         end
                     end,
                 },

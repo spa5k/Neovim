@@ -67,6 +67,14 @@ return {
                     },
                 },
             },
+            source_selector = {
+                winbar = true,
+                sources = {
+                    { source = "filesystem", display_name = "   Files " },
+                    { source = "buffers", display_name = "   Bufs " },
+                    { source = "git_status", display_name = "   Git " },
+                },
+            },
             event_handlers = {
                 {
                     event = "neo_tree_window_after_open",
