@@ -48,7 +48,13 @@ return {
             end, { desc = '[/] Fuzzily search in current buffer' })
 
             vim.keymap.set('n', '<leader>sp', '<Cmd>Telescope projects<CR>', { desc = '[S]earch [P]rojects' })
-            vim.keymap.set('n', '<C-S-p>', '<Cmd>Telescope commands<CR>', { desc = 'Search [C]ommands' })
+            -- open cheetsheet
+            vim.keymap.set('n', '<C-S-p>', function()
+                require('telescope').extensions.cheatsheet.cheatsheet(require('telescope.themes').get_dropdown {
+                    winblend = 10,
+                    previewer = true,
+                })
+            end, { desc = 'Search [C]heatsheet' })
             vim.keymap.set('n', '<C-S-f>', '<Cmd>Telescope live_grep<CR>', { desc = 'Search [F]iles' })
             vim.keymap.set('n', '<leader>sb', '<Cmd>Telescope buffers<CR>', { desc = 'Search [B]uffers' })
             vim.keymap.set('n', '<C-p>', '<Cmd>Telescope find_files<CR>', { desc = 'Search Files' })
