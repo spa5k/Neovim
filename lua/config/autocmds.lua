@@ -43,7 +43,6 @@ vim.api.nvim_create_autocmd('BufEnter', {
         }
         local current_buffer = vim.fn.expand('%:t')
         -- notify current buffer name
-        print(current_buffer)
         if not vim.tbl_contains(excluded_buffers, current_buffer) then
             vim.cmd('OutlineOpen')
         end
