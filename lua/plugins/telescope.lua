@@ -89,6 +89,20 @@ return {
                     previewer = false,
                 })
             end, { desc = 'List [C]olorschemes' })
+            -- Define key mappings for WhichKey
+            local wk = require("which-key")
+            wk.register({
+                ["<C-p>"] = { "<cmd>lua require('telescope').extensions.frecency.frecency(require('telescope.themes').get_dropdown { winblend = 10, previewer = true, })<CR>", "Search [F]iles" },
+                ["<leader><leader>"] = { "<cmd>lua require('telescope').extensions.smart_open.smart_open { cwd_only = true, filename_first = false, }<CR>", "Smart [O]pen" },
+                ["<leader>/"] = { "<cmd>lua require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_dropdown { winblend = 10, previewer = true, })<CR>", "[/] Fuzzily search in current buffer" },
+                ["<leader>sp"] = { "<Cmd>Telescope projects<CR>", "[S]earch [P]rojects" },
+                ["<C-S-p>"] = { "<cmd>lua require('telescope').extensions.cheatsheet.cheatsheet(require('telescope.themes').get_dropdown { winblend = 10, previewer = true, })<CR>", "Search [C]heatsheet" },
+                ["<C-S-f>"] = { "<Cmd>Telescope live_grep<CR>", "Search [F]iles" },
+                ["<leader>sb"] = { "<Cmd>Telescope buffers<CR>", "Search [B]uffers" },
+                ["<leader>hk"] = { "<cmd>lua require('telescope.builtin').keymaps(require('telescope.themes').get_dropdown { winblend = 10, previewer = false, })<CR>", "List [K]eymaps" },
+                ["<leader>,"] = { "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown { winblend = 10, previewer = false, })<CR>", "List [O]pen Buffers" },
+                ["<leader>cs"] = { "<cmd>lua require('telescope.builtin').colorscheme(require('telescope.themes').get_dropdown { winblend = 10, previewer = false, })<CR>", "List [C]olorschemes" },
+            }, { prefix = "" })
 
             -- extensions
             telescope.setup {

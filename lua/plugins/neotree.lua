@@ -11,6 +11,13 @@ return {
         { "<leader><tab>", ":Neotree toggle left<CR>",  silent = true, desc = "Left File Explorer" },
     },
     config = function()
+        -- Define key mappings for WhichKey
+        local wk = require("which-key")
+        wk.register({
+            e = { ":Neotree toggle float<CR>", "Float File Explorer" },
+            ["<tab>"] = { ":Neotree toggle left<CR>", "Left File Explorer" },
+        }, { prefix = "<leader>" }) -- replace <leader> with your leader key
+
         require("neo-tree").setup({
             close_if_last_window = true,
             popup_border_style = "single",

@@ -27,6 +27,20 @@ return {
             { "R",     mode = { "o", "x" },      function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
             { "<c-s>", mode = { "c" },           function() require("flash").toggle() end,            desc = "Toggle Flash Search" },
         },
+        config = function()
+            -- Define key mappings for WhichKey
+            local wk = require("which-key")
+            wk.register({
+                f = {
+                    name = "+flash",
+                    s = { "<cmd>lua require('flash').jump()<CR>", "Flash" },
+                    S = { "<cmd>lua require('flash').treesitter()<CR>", "Flash Treesitter" },
+                    r = { "<cmd>lua require('flash').remote()<CR>", "Remote Flash" },
+                    R = { "<cmd>lua require('flash').treesitter_search()<CR>", "Treesitter Search" },
+                    ["<C-s>"] = { "<cmd>lua require('flash').toggle()<CR>", "Toggle Flash Search" },
+                },
+            }, { prefix = "<leader>" })
+        end,
     },
     {
         "folke/todo-comments.nvim",
@@ -67,6 +81,23 @@ return {
         end,
         config = function()
             require("move").setup({})
+            -- Define key mappings for WhichKey
+            local wk = require("which-key")
+            wk.register({
+                m = {
+                    name = "+move",
+                    j = { "<cmd>MoveLine(1)<CR>", "Move line down" },
+                    k = { "<cmd>MoveLine(-1)<CR>", "Move line up" },
+                    h = { "<cmd>MoveHChar(-1)<CR>", "Move character left" },
+                    l = { "<cmd>MoveHChar(1)<CR>", "Move character right" },
+                    f = { "<cmd>MoveWord(1)<CR>", "Move word forward" },
+                    b = { "<cmd>MoveWord(-1)<CR>", "Move word backward" },
+                    d = { "<cmd>MoveBlock(1)<CR>", "Move block down" },
+                    u = { "<cmd>MoveBlock(-1)<CR>", "Move block up" },
+                    left = { "<cmd>MoveHBlock(-1)<CR>", "Move block left" },
+                    right = { "<cmd>MoveHBlock(1)<CR>", "Move block right" },
+                },
+            }, { prefix = "<leader>" })
         end,
     },
     {
@@ -94,52 +125,4 @@ return {
         'stevearc/overseer.nvim',
         opts = {},
     }
-    -- {
-    --     'numToStr/Comment.nvim',
-    --     opts = {
-    --         ---Add a space b/w comment and the line
-    --         padding = true,
-    --         ---Whether the cursor should stay at its position
-    --         sticky = true,
-    --         ---Lines to be ignored while (un)comment
-    --         ignore = nil,
-    --         ---LHS of toggle mappings in NORMAL mode
-    --         toggler = {
-    --             ---Line-comment toggle keymap
-    --             line = 'gcc',
-    --             ---Block-comment toggle keymap
-    --             block = 'gbc',
-    --         },
-    --         ---LHS of operator-pending mappings in NORMAL and VISUAL mode
-    --         opleader = {
-    --             ---Line-comment keymap
-    --             line = 'gc',
-    --             ---Block-comment keymap
-    --             block = 'gb',
-    --         },
-    --         ---LHS of extra mappings
-    --         extra = {
-    --             ---Add comment on the line above
-    --             above = 'gcO',
-    --             ---Add comment on the line below
-    --             below = 'gco',
-    --             ---Add comment at the end of line
-    --             eol = 'gcA',
-    --         },
-    --         ---Enable keybindings
-    --         ---NOTE: If given `false` then the plugin won't create any mappings
-    --         mappings = {
-    --             ---Operator-pending mapping; `gcc` `gbc` `gc[count]{motion}` `gb[count]{motion}`
-    --             basic = true,
-    --             ---Extra mapping; `gco`, `gcO`, `gcA`
-    --             extra = true,
-    --         },
-
-    --     },
-    --     config = function()
-    --         require('Comment').setup {
-    --             pre_hook = require('ts_context_commentstring.integrations.comment_nvim').create_pre_hook(),
-    --         }
-    --     end
-    -- },
 }

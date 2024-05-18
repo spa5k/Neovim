@@ -80,6 +80,31 @@ return {
                 end,
             })
 
+            -- Define key mappings for WhichKey
+            local wk = require("which-key")
+            wk.register({
+                g = {
+                    name = "+goto",
+                    d = { "<cmd>lua require('telescope.builtin').lsp_definitions()<CR>", "Goto Definition" },
+                    r = { "<cmd>lua require('telescope.builtin').lsp_references()<CR>", "Goto References" },
+                    i = { "<cmd>lua require('telescope.builtin').lsp_implementations()<CR>", "Goto Implementation" },
+                    o = { "<cmd>lua require('telescope.builtin').lsp_type_definitions()<CR>", "Type Definition" },
+                    D = { "<cmd>lua vim.lsp.buf.declaration()<CR>", "Goto Declaration" },
+                    s = { "<cmd>lua vim.lsp.buf.signature_help()<CR>", "Signature Documentation" },
+                    l = { "<cmd>lua vim.diagnostic.open_float()<CR>", "Open Diagnostic Float" },
+                    rn = { "<cmd>lua vim.lsp.buf.rename()<CR>", "Rename Symbol" },
+                },
+                K = { "<cmd>lua vim.lsp.buf.hover()<CR>", "Hover Documentation" },
+                ["<leader>"] = {
+                    p = { "<cmd>lua require('telescope.builtin').lsp_document_symbols()<CR>", "Document Symbols" },
+                    P = { "<cmd>lua require('telescope.builtin').lsp_workspace_symbols()<CR>", "Workspace Symbols" },
+                    Ps = { "<cmd>lua require('telescope.builtin').lsp_dynamic_workspace_symbols()<CR>", "Dynamic Workspace Symbols" },
+                    ca = { "<cmd>lua vim.lsp.buf.code_action()<CR>", "Code Actions" },
+                    v = { "<cmd>vsplit | lua vim.lsp.buf.definition()<cr>", "Goto Definition in Vertical Split" },
+                },
+                ["<F2>"] = { "<cmd>lua vim.lsp.buf.rename()<CR>", "Rename Symbol" },
+            }, { prefix = "" }) -- no prefix for these mappings
+
             local capabilities = vim.lsp.protocol.make_client_capabilities()
             capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
 

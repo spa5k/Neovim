@@ -148,6 +148,24 @@ return {
                     end,
                 },
             })
+
+            -- Define key mappings for WhichKey
+            local wk = require("which-key")
+            wk.register({
+                c = {
+                    name = "+completion",
+                    p = { "<cmd>lua require('cmp').select_prev_item()<CR>", "Select previous item" },
+                    n = { "<cmd>lua require('cmp').select_next_item()<CR>", "Select next item" },
+                    b = { "<cmd>lua require('cmp').scroll_docs(-4)<CR>", "Scroll docs up" },
+                    f = { "<cmd>lua require('cmp').scroll_docs(4)<CR>", "Scroll docs down" },
+                    t = { "<cmd>lua require('cmp').select_next_item()<CR>", "Select next item or expand snippet" },
+                    s = { "<cmd>lua require('cmp').select_prev_item()<CR>", "Select previous item or jump to previous snippet" },
+                    r = { "<cmd>lua require('cmp').confirm({behavior = cmp.ConfirmBehavior.Replace, select = true})<CR>", "Confirm selection and replace" },
+                    y = { "<cmd>lua require('cmp').confirm({behavior = cmp.ConfirmBehavior.Insert, select = true})<CR>", "Confirm selection and insert" },
+                    e = { "<cmd>lua require('cmp').abort()<CR>", "Abort completion" },
+                    space = { "<cmd>lua require('cmp').complete()<CR>", "Trigger completion" },
+                },
+            }, { prefix = "<leader>" })
         end
     },
     {

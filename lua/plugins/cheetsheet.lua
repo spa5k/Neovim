@@ -33,6 +33,16 @@ return {
                     ["<C-E>"] = ctactions.edit_user_cheatsheet,
                 },
             })
+
+            local wk = require("which-key")
+            wk.register({
+                c = {
+                    name = "+cheatsheet",
+                    c = { "<cmd>Cheatsheet<CR>", "Open cheatsheet" },
+                    e = { "<cmd>lua require('cheatsheet').edit_user_cheatsheet()<CR>", "Edit user cheatsheet" },
+                    y = { "<cmd>lua require('cheatsheet').copy_cheat_value()<CR>", "Copy cheat value" },
+                },
+            }, { prefix = "<leader>" })
         end,
     }
 }

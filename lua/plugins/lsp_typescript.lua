@@ -51,6 +51,21 @@ return {
             vim.keymap.set('n', '<leader>Np', "<cmd>lua require('package-info').change_version()<CR>",
                 { desc = "Install a different dependency version" })
             vim.keymap.set('n', '<leader>Nt', ":Telescope package_info<CR>", { desc = "Telescope package info" })
+            -- Define key mappings for WhichKey
+            local wk = require("which-key")
+            wk.register({
+                N = {
+                    name = "+package-info",
+                    s = { "<cmd>lua require('package-info').show()<CR>", "Show dependency versions" },
+                    c = { "<cmd>lua require('package-info').hide()<CR>", "Hide dependency versions" },
+                    T = { "<cmd>lua require('package-info').toggle()<CR>", "Toggle dependency versions" },
+                    u = { "<cmd>lua require('package-info').update()<CR>", "Update dependency on the line" },
+                    d = { "<cmd>lua require('package-info').delete()<CR>", "Delete dependency on the line" },
+                    i = { "<cmd>lua require('package-info').install()<CR>", "Install a new dependency" },
+                    p = { "<cmd>lua require('package-info').change_version()<CR>", "Install a different dependency version" },
+                    t = { ":Telescope package_info<CR>", "Telescope package info" },
+                },
+            }, { prefix = "<leader>" })
         end,
     }
 }
