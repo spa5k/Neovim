@@ -58,14 +58,15 @@ return {
     lazy = true,
     opts = {},
   },
-  {
-    'Theyashsawarkar/bufferline.nvim',
-    dependencies = 'nvim-tree/nvim-web-devicons',
-    config = function()
-      require("bufferline").setup {
-      }
-    end
-  },
+  { 'akinsho/bufferline.nvim', version = "*", dependencies = 'nvim-tree/nvim-web-devicons' },
+  -- {
+  --   'Theyashsawarkar/bufferline.nvim',
+  --   dependencies = 'nvim-tree/nvim-web-devicons',
+  --   config = function()
+  --     require("bufferline").setup {
+  --     }
+  --   end
+  -- },
   {
     "hedyhli/outline.nvim",
     config = function()
