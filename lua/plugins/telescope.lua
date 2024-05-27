@@ -83,7 +83,7 @@ return {
                 })
             end, { desc = 'List [O]pen Buffers' })
             -- colorschemes
-            vim.keymap.set('n', '<leader>cs', function()
+            vim.keymap.set('n', '<leader>ts', function()
                 require('telescope.builtin').colorscheme(require('telescope.themes').get_dropdown {
                     winblend = 10,
                     previewer = false,
@@ -101,7 +101,7 @@ return {
                 ["<leader>sb"] = { "<Cmd>Telescope buffers<CR>", "Search [B]uffers" },
                 ["<leader>hk"] = { "<cmd>lua require('telescope.builtin').keymaps(require('telescope.themes').get_dropdown { winblend = 10, previewer = false, })<CR>", "List [K]eymaps" },
                 ["<leader>,"] = { "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown { winblend = 10, previewer = false, })<CR>", "List [O]pen Buffers" },
-                ["<leader>cs"] = { "<cmd>lua require('telescope.builtin').colorscheme(require('telescope.themes').get_dropdown { winblend = 10, previewer = false, })<CR>", "List [C]olorschemes" },
+                ["<leader>ts"] = { "<cmd>lua require('telescope.builtin').colorscheme(require('telescope.themes').get_dropdown { winblend = 10, previewer = false, })<CR>", "List [C]olorschemes" },
             }, { prefix = "" })
 
             -- extensions
