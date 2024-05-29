@@ -17,15 +17,12 @@ WhichKeyMap('n', '<C-j>', '<C-w>j', { desc = 'Move focus to the lower window' })
 WhichKeyMap('n', '<C-k>', '<C-w>k', { desc = 'Move focus to the upper window' })
 WhichKeyMap('n', '<C-l>', '<C-w>l', { desc = 'Move focus to the right window' })
 
--- Buffer navigation
-WhichKeyMap('n', '<leader>h', '<C-w>h', { desc = 'Move focus to the left window' })
-WhichKeyMap('n', '<leader>j', '<C-w>j', { desc = 'Move focus to the lower window' })
-WhichKeyMap('n', '<leader>k', '<C-w>k', { desc = 'Move focus to the upper window' })
-WhichKeyMap('n', '<leader>l', '<C-w>l', { desc = 'Move focus to the right window' })
-
--- ctrl hjkl for moving between buffers
-WhichKeyMap('n', '<C-h>', ':bprevious<CR>', { desc = 'Move to previous buffer' })
-WhichKeyMap('n', '<C-l>', ':bnext<CR>', { desc = 'Move to next buffer' })
+-- Buffer navigation using leader key
+WhichKeyMap('n', '<leader>h', ':bprevious<CR>', { desc = 'Move to previous buffer' })
+WhichKeyMap('n', '<leader>l', ':bnext<CR>', { desc = 'Move to next buffer' })
 
 -- Close buffer
 WhichKeyMap('n', '<leader>qq', ':bd<CR>', { desc = 'Close buffer' })
+
+-- Show hover
+-- WhichKeyMap('n', '<S-k>', ':lua require("pretty_hover").hover()<CR>', { desc = 'Show hover' })

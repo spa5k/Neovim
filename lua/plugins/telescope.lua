@@ -10,7 +10,7 @@ return {
             "kkharji/sqlite.lua",
             "nvim-telescope/telescope-frecency.nvim",
             "nvim-telescope/telescope-project.nvim",
-            "rcarriga/nvim-notify",
+            -- "rcarriga/nvim-notify",
             "nvim-telescope/telescope-fzy-native.nvim",
             "danielfalk/smart-open.nvim",
         },
@@ -102,6 +102,9 @@ return {
                 ["<leader>hk"] = { "<cmd>lua require('telescope.builtin').keymaps(require('telescope.themes').get_dropdown { winblend = 10, previewer = false, })<CR>", "List [K]eymaps" },
                 ["<leader>,"] = { "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown { winblend = 10, previewer = false, })<CR>", "List [O]pen Buffers" },
                 ["<leader>ts"] = { "<cmd>lua require('telescope.builtin').colorscheme(require('telescope.themes').get_dropdown { winblend = 10, previewer = false, })<CR>", "List [C]olorschemes" },
+                --keymaps
+                ["<leader>hk"] = { "<cmd>lua require('telescope.builtin').keymaps(require('telescope.themes').get_dropdown { winblend = 10, previewer = false, })<CR>", "List [K]eymaps" },
+            
             }, { prefix = "" })
 
             -- extensions
@@ -172,7 +175,7 @@ return {
             telescope.load_extension("frecency")
             telescope.load_extension("fzf")
             -- telescope.load_extension("ui-select")
-            telescope.load_extension("notify")
+            -- telescope.load_extension("notify")
             telescope.load_extension("project")
             telescope.load_extension("smart_open")
         end,
