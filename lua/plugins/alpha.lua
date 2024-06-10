@@ -17,19 +17,6 @@ return {
            ██████  █████████████████████ ████ █████ █████ ████ ██████
         ]]
 
-        -- local wk = require("which-key")
-        -- wk.register({
-        --     f = { ":Telescope find_files <CR>", "Find file" },
-        --     n = { ":ene <BAR> startinsert <CR>", "New file" },
-        --     r = { ":lua require('persistence').load()<CR>", "Restore session" },
-        --     g = { ":Telescope live_grep <CR>", "Find text" },
-        --     s = { ":Telescope projects <CR>", "Search projects" },
-        --     c = { ":e ~/.config/nvim/ <CR>", "Config" },
-        --     m = { ":Mason<CR>", "Mason" },
-        --     l = { ":Lazy<CR>", "Lazy" },
-        --     q = { ":qa<CR>", "Quit" },
-        -- }, { prefix = "<leader>" })
-
         dashboard.section.header.val = vim.split(logo, "\n")
         dashboard.section.buttons.val = {
             dashboard.button("f", " " .. " Find file", ":Telescope find_files <CR>"),

@@ -26,3 +26,8 @@ WhichKeyMap('n', '<leader>qq', ':bd<CR>', { desc = 'Close buffer' })
 
 -- Show hover
 -- WhichKeyMap('n', '<S-k>', ':lua require("pretty_hover").hover()<CR>', { desc = 'Show hover' })
+
+
+-- Ctrl + . to open the  lsp action menu
+
+WhichKeyMap('n', '<C-n>', "<cmd>lua vim.lsp.buf.code_action()<CR>", { desc = 'Show LSP actions' })
