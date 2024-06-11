@@ -92,6 +92,7 @@ NVIM_APPNAME=spa5k/Neovim/ nvim
 + [lewis6991/hover.nvim](https://dotfyle.com/plugins/lewis6991/hover.nvim)
 + [j-hui/fidget.nvim](https://dotfyle.com/plugins/j-hui/fidget.nvim)
 + [onsails/lspkind.nvim](https://dotfyle.com/plugins/onsails/lspkind.nvim)
++ [soulis-1256/eagle.nvim](https://dotfyle.com/plugins/soulis-1256/eagle.nvim)
 + [neovim/nvim-lspconfig](https://dotfyle.com/plugins/neovim/nvim-lspconfig)
 ### lsp-installer
 
